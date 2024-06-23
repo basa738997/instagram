@@ -4,8 +4,8 @@
     <!--  -->
     <div class="w-[80%] mx-auto p-10 bg-zinc-700 rounded">
       <h1 class=" mb-10 text-white text-5xl font-bold">hello <%= user.username%> 👋</h1>
-      <img src="<%= user.avatar%>" alt="">
-      <a class="bg-red-300 px-5 py-2 text-white rounded" href="">Logout</a>
+      <img class="w-40 h-40 rounded-full m-2 mb-3 border-4 border-green-700 " src="<%= user.avatar%>" alt="">
+      <a class="bg-red-300 px-5 py-2 text-white rounded" href="/users/logout">Logout</a>
     </div>
     <!--  -->
     <%- include('partials/footer')%>

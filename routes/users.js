@@ -24,6 +24,26 @@ router.post("/register", async function(req, res, next){
 
   }
 })
+
+router.post(
+  "/login",
+  passport.authenticate("local", {
+      successRedirect: "/users/profile",
+      failureRedirect: "/login",
+  }),
+  (req, res, next) => {}
+);
+router.get("/profile", isLoggedIn, (req, res, next) => {
+  res.render("profile", { title: "Profile | Socialmedia", user: req.user });
+});
+
+
+router.get('/logout', isLoggedIn, function(req, res, next) {
+  req.logout(() => {
+    res.redirect("/login");
+});
+});
+
 /* GET users listing. */
 router.get('/', function(req, res, next) {
   res.send('respond with a resource');

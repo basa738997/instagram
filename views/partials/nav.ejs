@@ -1,6 +1,20 @@
-<nav class="bg-black text-center mx-auto py-5 ">
-    <a class="text-white text-2xl text-white  font-thin px-10" href="/">Home</a>
+<nav class="bg-black text-center mx-auto py-5 flex justify-evenly ">
+   <% if(user){ %>
+        <a class="text-white text-2xl text-white  font-thin px-10" href="/users/profile">Home</a>        
+  <% } else{ %>
+        <a class="text-white text-2xl text-white  font-thin px-10" href="/">Home</a>
+ <% } %>
+    
     <a class="text-white text-2xl text-white  font-thin px-10" href="/contact">Contact</a>
     <a class="text-white text-2xl text-white  font-thin px-10" href="/about">About</a>
-    <a class="text-white text-2xl text-white  font-thin px-10" href="/login">Login</a>
+
+    <div>
+        <% if(user){ %>
+            <a class="bg-red-300 px-5 py-2 rounded" href="/users/logout">Logout</a>
+
+       <% } else{ %>
+            <a class="bg-green-300 px-5 py-2 rounded" href="/login">Login</a>
+      <% } %>
+    </div>
+   
 </nav>
