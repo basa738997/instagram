@@ -1,0 +1,18 @@
+Step 1: Create Express Generator boilerplate
+ Step 2: In package.json/scripts create dev script 
+ Step 3: create .env and .gitignore file 
+ Step 4. install package dotenv mongoose 
+ Step 5: configure .env in app.js 1st line 
+ Step 6. generate .gitignore online node content and paste it 
+ Step 7. create models/database.js folder and file and write the connection code register URI in .env Step 8. Get the Mongo Uri from mongo atlas connect/mogodb for vscode
+ Step 9: require the database.js file in app.js
+ Step 10. Create index.routes.js and user.route.js and require in app.js
+ Step 11. Create Partials in views and use tailwind cdn 
+ Step 12. create pages according to nav links in index.routes.js
+ Step 13. create login register and forget ejs page. 
+ Step 14. Create profile.ejs page as well 
+ Step 15: install npm i --save passport passport-local passport-local-mongoose express-session Step 16: Configure Passport Boilerplate i. changes in user.schema.js ii. changes in app.js iii. changes in user.routes.js 
+ Step 16: Register User in the database 
+ Step 17: Make Login router with middleware 
+ Step 18: Middleware isLoggedIn in middleware/auth.js for page authentication 
+ Step 19: Logout Functionality
