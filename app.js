@@ -4,11 +4,14 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
+
+const session = require("express-session");
+const passport = require("passport");
+const UserCollection = require("./models/userschema");
 
 // set up mongoose connection
 
@@ -24,6 +27,23 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+
+// passport and session code
+
+app.use(
+  session({
+      secret: process.env.SESSION_SECRET,
+      resave: false,
+      saveUninitialized: true,
+  })
+);
+app.use(passport.initialize());
+app.use(passport.session());
+passport.serializeUser(UserCollection.serializeUser());
+passport.deserializeUser(UserCollection.deserializeUser());
+
+
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);

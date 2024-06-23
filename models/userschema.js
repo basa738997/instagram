@@ -1,4 +1,6 @@
-const mongoose = require("mongoose")
+const mongoose = require("mongoose");
+
+const plm = require("passport-local-mongoose");
 
 const userschema = new mongoose.Schema({
        avatar:{
@@ -11,6 +13,8 @@ const userschema = new mongoose.Schema({
        password:String
 
 })
+
+userschema.plugin(plm)
 
 const UserCollection = mongoose.model("user", userschema);
 
